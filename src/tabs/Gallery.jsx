@@ -10,7 +10,6 @@ export class Gallery extends Component {
 
   handleSubmit = value => {
     this.setState({ query: value });
-    console.log(this.state);
   };
 
   render() {
