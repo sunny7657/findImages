@@ -7,17 +7,20 @@ export class SearchForm extends Component {
   state = {
     value: '',
   };
-  handleInputChange = e => {
-    this.setState({ value: e.currentTarget.value });
+
+  handleCHange = evt => {
+    this.setState({ value: evt.currentTarget.value.toLowerCase().trim() });
   };
-  handleFormSummit = e => {
-    e.preventDefault();
+
+  handleFormSubmit = evt => {
+    evt.preventDefault();
     this.props.onSubmit(this.state.value);
     this.setState({ value: '' });
   };
+
   render() {
     return (
-      <SearchFormStyled onSubmit={this.handleFormSummit}>
+      <SearchFormStyled onSubmit={this.handleFormSubmit}>
         <FormBtn type="submit">
           <FiSearch size="16px" />
         </FormBtn>
@@ -27,7 +30,7 @@ export class SearchForm extends Component {
           required
           autoFocus
           value={this.state.value}
-          onChange={this.handleInputChange}
+          onChange={this.handleCHange}
         />
       </SearchFormStyled>
     );
